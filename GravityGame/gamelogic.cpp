@@ -11,7 +11,6 @@ GameLogic::GameLogic(QObject *parent)
 
 void GameLogic::Init()
 {
-    pObjectHeavyPoint = nullptr;
     planetBuilder = new PlanetBuilder;
     heavyPointBuilder = new HeavyPointBuilder;
 
@@ -26,6 +25,61 @@ void GameLogic::Update()
     UpdateObjectsPositions();
 };
 
+void GameLogic::impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj2) {
+    float yso1 = obj1->GetObjectYSpeed();
+    float xso1 = obj1->GetObjectXSpeed();
+    float yso2 = obj2->GetObjectYSpeed();
+    float xso2 = obj2->GetObjectXSpeed();
+
+    float massObj1 = obj1->GetObjectMass();
+    float massObj2 = obj2->GetObjectMass();
+    float speedObj1 = sqrt(xso1 * xso1 + yso1 * yso1);
+    float speedObj2 = sqrt(xso2 * xso2 + yso2 * yso2);
+    float tempSpeed1 = 0, tempSpeed2 = 0;
+    float tSpeedObj1 = 0, tSpeedObj2 = 0;
+
+    if (xso1 < 0)
+        speedObj1 *= -1;
+    if (xso2 < 0)
+        speedObj2 *= -1;
+
+    float relMass = massObj2 / massObj1;
+
+    float A = relMass - 1;
+    float B = -2 * (relMass * speedObj2 + speedObj1);
+    float C = speedObj2 * speedObj2 * (relMass + 1) + 2 * speedObj2 * speedObj1;
+
+    float d = B * B - 4 * A * C; // Рассчитываем дискриминант
+    if (d > 0) // Условие при дискриминанте больше нуля
+    {
+      tempSpeed1 = ((-B) + sqrt(d)) / (2 * A);
+      tempSpeed2 = ((-B) - sqrt(d)) / (2 * A);
+
+    tSpeedObj2 = std::fmaxf(tempSpeed1, tempSpeed2);
+    if (tSpeedObj2 < 0) {
+        qDebug() << " fmaxf < 0";
+        tSpeedObj2 = 0;
+    }
+
+    }
+    if (d == 0) // Условие для дискриминанта равного нулю
+    {
+      tempSpeed1 = -(B / (2 * A));
+      if (tempSpeed1 < 0) {
+          tSpeedObj2 = 0;
+          qDebug() << "d == 0 ";
+      }
+    }
+    if (d < 0) { // Условие при дискриминанте меньше нуля
+      qDebug() << "D < 0, Действительных корней уравнения не существует";
+      tSpeedObj2 = 0;
+    }
+
+    tSpeedObj1 = speedObj1 + relMass * speedObj2 - relMass * tSpeedObj2;
+
+
+}
+
 void GameLogic::UpdateObjectsSpeeds()
 {
     float distance;
@@ -39,19 +93,15 @@ void GameLogic::UpdateObjectsSpeeds()
         for (int j = 0; j < objects.size(); ++j)
         {
             if (i == j)
-            {
                 continue;
-            }
+
             deltaX = objects[i]->pos().x() - objects[j]->pos().x();
             deltaY = objects[i]->pos().y() - objects[j]->pos().y();
             distance = sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            if (distance < objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious())
-            {
-                //CollisionEvent
-                //qDebug() << "Collision";
+            if (distance <= objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious())
                 continue;
-            }
+                //impulses(&vx, &vy, objects[i], objects[j]);
 
             if (distance > 5)
             {
@@ -77,12 +127,15 @@ void GameLogic::UpdateObjectsPositions()
         objects[i]->setPos(point);
 
         CollisionWithSceneFrames(point, i);
+        if (objects[i]->GetObjectMass() == 10000)
+            qDebug() << objects[i]->pos() << "\n";
     }
+
 }
 
 void GameLogic::CollisionWithSceneFrames(const QPointF& point, int index)
 {
-    if(point.x() >= cSceneWidth || point.x() <= 0)
+    if (point.x() >= cSceneWidth || point.x() <= 0)
     {
         objects[index]->SetObjectXSpeed(-objects[index]->GetObjectXSpeed());
     }
@@ -101,21 +154,18 @@ ObjectItem* GameLogic::AddItem()
 
 void GameLogic::SlotAddHeavyItem(QPointF _point)
 {
-    if (pObjectHeavyPoint == nullptr)
-    {
-        pObjectHeavyPoint = director->CreateHeavyPoint(heavyPointBuilder, _point);
-        objects.append(pObjectHeavyPoint);
-    }
+
+    objects.append(HeavyPoint::getHeavyPoint(director, heavyPointBuilder, &_point));
+
 }
 
 void GameLogic::SlotDeleteHeavyItem()
 {
+    ObjectItem *pObjectHeavyPoint = HeavyPoint::getHeavyPoint(director, heavyPointBuilder, NULL);
+
     if (objects.contains(pObjectHeavyPoint))
-    {
-        objects.removeAt(objects.indexOf(pObjectHeavyPoint));
-        delete pObjectHeavyPoint;
-        pObjectHeavyPoint = nullptr;
-    }
+        objects.removeOne(pObjectHeavyPoint);
+
 }
 
 GameLogic::~GameLogic()

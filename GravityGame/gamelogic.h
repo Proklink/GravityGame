@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include "StorageVariable.h"
-#include "objectitem.h"
+#include "heavypoint.h"
 #include "objectdirector.h"
 #include "planetbuilder.h"
 
@@ -32,12 +32,13 @@ private:
     void UpdateObjectsSpeeds();
     void CollisionWithSceneFrames(const QPointF& point, int index);
     void generatePixPath(QRandomGenerator *generator);
+    void impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj2);
 private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;
     PlanetBuilder *planetBuilder;
     HeavyPointBuilder *heavyPointBuilder;
-    ObjectItem *pObjectHeavyPoint;
+    //ObjectItem *pObjectHeavyPoint;
     QTimer *timer;
     QRandomGenerator generator;
 };

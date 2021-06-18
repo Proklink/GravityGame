@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     AbstractImage.cpp \
     gamelogic.cpp \
+    heavypoint.cpp \
     heavypointbuilder.cpp \
     image.cpp \
     iobjectbuilder.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     AbstractImage.h \
     StorageVariable.h \
     gamelogic.h \
+    heavypoint.h \
     heavypointbuilder.h \
     image.h \
     iobjectbuilder.h \
@@ -46,3 +48,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    gravitygame_model.qmodel
