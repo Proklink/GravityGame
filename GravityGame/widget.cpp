@@ -42,7 +42,7 @@ void Widget::Init()
     connect(itemSettingsDialog, &ItemSettingsDialog::SignalSendObjectParametrs, scene, &Scene::SlotSetParametrsToItem);
 
     QString rawPath = QCoreApplication::applicationDirPath();
-    picPath = rawPath.left(rawPath.indexOf("build") - 1) + "/GravityGame/kosmos";
+    picPath = rawPath.left(rawPath.indexOf("build") - 1) + "/GravityGame/backs/kosmos";
     background = new ProxyImage(picPath + "0.jpg");
 }
 

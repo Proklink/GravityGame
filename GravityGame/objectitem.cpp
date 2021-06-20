@@ -11,7 +11,12 @@ ObjectItem::ObjectItem(QObject *parent)
 
 void ObjectItem::Init()
 {
-    //pixmapPath = picPath + QString::number(generator.generate() % 5 + 1) + ".png";
+    QRandomGenerator generator(time(NULL));
+    pixmapPath = picPath + QString::number(generator.generate() % 5 + 1) + ".png";
+}
+
+void ObjectItem::SetPixmapPath(QString path) {
+    pixmapPath = path;
 }
 
 void ObjectItem::AddSpeed(float _vx, float _vy)
@@ -25,8 +30,8 @@ void ObjectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->setBrush(QBrush(objectColor));
     painter->drawEllipse(QRectF(0, 0, objectRadious * 2, objectRadious * 2));
 
-    //QPixmap *px = new QPixmap(pixmapPath);
-    //painter->drawPixmap(QRectF(0, 0, objectRadious * 2, objectRadious * 2).toRect(), *px);
+    QPixmap *px = new QPixmap(pixmapPath);
+    painter->drawPixmap(QRectF(0, 0, objectRadious * 2, objectRadious * 2).toRect(), *px);
     Q_UNUSED(option);
     Q_UNUSED(widget);
 }

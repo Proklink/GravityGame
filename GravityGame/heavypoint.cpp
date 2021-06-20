@@ -10,6 +10,7 @@ ObjectItem *HeavyPoint::getHeavyPoint(ObjectDirector *director, HeavyPointBuilde
     if (pObjectHeavyPoint == nullptr)
     {
         pObjectHeavyPoint = director->CreateHeavyPoint(heavyPointBuilder, *point);
+        pObjectHeavyPoint->SetPixmapPath(QCoreApplication::applicationDirPath().left(QCoreApplication::applicationDirPath().indexOf("build") - 1) + "/GravityGame/planets/Blackhole.png");
     } else {
         if (point && (pObjectHeavyPoint->pos() != *point))
             pObjectHeavyPoint->setPos(*point);

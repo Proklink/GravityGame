@@ -110,7 +110,8 @@ void GameLogic::UpdateObjectsSpeeds()
                 vy = /*0.007 * */objects[j]->GetObjectMass() / distance / distance
                         * (objects[j]->pos().y() - objects[i]->pos().y()) / distance;
 
-                objects[i]->AddSpeed(vx, vy);
+                if (objects[i]->GetObjectMass() != 10000)
+                    objects[i]->AddSpeed(vx, vy);
             }
         }
     }
@@ -154,13 +155,12 @@ ObjectItem* GameLogic::AddItem()
 
 void GameLogic::SlotAddHeavyItem(QPointF _point)
 {
-
     objects.append(HeavyPoint::getHeavyPoint(director, heavyPointBuilder, &_point));
-
 }
 
 void GameLogic::SlotDeleteHeavyItem()
 {
+    qDebug() << "SlotDeleteHeavyItem";
     ObjectItem *pObjectHeavyPoint = HeavyPoint::getHeavyPoint(director, heavyPointBuilder, NULL);
 
     if (objects.contains(pObjectHeavyPoint))

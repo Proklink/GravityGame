@@ -26,11 +26,13 @@ public:
     void SetObjectYSpeed(float _ySpeed) { ySpeed = _ySpeed; };
     void SetObjectRadious(float _objectRadious) { objectRadious = _objectRadious; };
     void SetColor(QColor _color) { objectColor = _color; };
+    void SetPixmapPath(QString path);
 public:
     void AddSpeed(float _vx, float _vy);
 protected slots:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     QRectF boundingRect() const override;
+
 private:
     void Init();
 private:
@@ -39,9 +41,9 @@ private:
     float xSpeed;
     float ySpeed;
     float objectRadious;
-
+protected:
     QString pixmapPath;
-    QString picPath = QCoreApplication::applicationDirPath().left(QCoreApplication::applicationDirPath().indexOf("build") - 1) + "/GravityGame/planet";
+    QString picPath = QCoreApplication::applicationDirPath().left(QCoreApplication::applicationDirPath().indexOf("build") - 1) + "/GravityGame/planets/planet";
 };
 
 #endif // OBJECTITEM_H

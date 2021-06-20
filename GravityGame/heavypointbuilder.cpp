@@ -12,7 +12,7 @@ void HeavyPointBuilder::BuildStartSpeed()
 
 void HeavyPointBuilder::BuildStartMass()
 {
-    item->SetObjectMass(/*std::numeric_limits<float>::max()*/10000);
+    item->SetObjectMass(10000);
 }
 
 void HeavyPointBuilder::BuildStartColor()
@@ -22,7 +22,7 @@ void HeavyPointBuilder::BuildStartColor()
 
 void HeavyPointBuilder::BuildStartRadious()
 {
-    item->SetObjectRadious(1);
+    item->SetObjectRadious(5);
 }
 
 void HeavyPointBuilder::BuildStartPosition(const QPointF& _point)

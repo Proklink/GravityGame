@@ -34,7 +34,6 @@ private:
 private:
     Ui::Widget *ui;
     ObjectItem *obj;
-    //QGraphicsScene *scene;
     Scene *scene;
     GameLogic *gameLogic;
     ItemSettingsDialog *itemSettingsDialog;

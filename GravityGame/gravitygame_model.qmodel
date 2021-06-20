@@ -485,7 +485,7 @@
                          <object>{5e57fa84-1164-4553-a56e-c0f15224c5cb}</object>
                          <context>GravityGame</context>
                          <name>GameLogic</name>
-                         <pos>x:65;y:310</pos>
+                         <pos>x:80;y:315</pos>
                          <rect>x:-110;y:-125;w:220;h:250</rect>
                          <visual-role>9</visual-role>
                          <visual-role2>2</visual-role2>
@@ -802,10 +802,52 @@
                       </DAssociation>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DBoundary">
+                      <DBoundary>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{94bbf369-0936-4778-9153-5db0550d45b9}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <text>View</text>
+                       <pos>x:75;y:-180</pos>
+                       <rect>x:-145;y:-280;w:290;h:560</rect>
+                      </DBoundary>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DBoundary">
+                      <DBoundary>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{1af8bddc-7696-4345-beb3-3936d0a8ceec}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <text>Model</text>
+                       <pos>x:465;y:-65</pos>
+                       <rect>x:-140;y:-115;w:280;h:230</rect>
+                      </DBoundary>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DBoundary">
+                      <DBoundary>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{95db5e75-317b-4969-b082-0a5e0dce9870}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <text>Controller</text>
+                       <pos>x:75;y:295</pos>
+                       <rect>x:-165;y:-160;w:330;h:320</rect>
+                      </DBoundary>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1623952981744</last-modified>
-                  <toolbarid>General</toolbarid>
+                  <last-modified>1624008646697</last-modified>
+                  <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
                </MCanvasDiagram>
@@ -1607,7 +1649,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{37098a29-c4cf-4a36-9b28-374af9180cd9}</uid>
+                               <uid>{dda5ea17-476a-43c6-a35d-7ae7ec3e10d5}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>void SetParametrs()</declaration>
@@ -1615,7 +1657,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{7e1ef57b-6145-41f9-9f09-9f58215de228}</uid>
+                               <uid>{f11d8f75-f6a2-4dc0-9826-552ddd3d9c99}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void SlotSetParametrs()</declaration>
@@ -1623,7 +1665,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{7d96b13f-a816-4ac0-89a0-cf5ce03ae2a3}</uid>
+                               <uid>{32333a57-9bca-4709-986d-d736bea444a0}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ItemSettingsDialog *ui</declaration>
@@ -2380,7 +2422,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{ab82bef0-3f0b-4439-a3b7-408d90d6e2da}</uid>
+                               <uid>{7af707df-5b8d-4113-9beb-7b15a2e303d9}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>void Update()</declaration>
@@ -2388,7 +2430,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{d352fc69-8078-4ddb-b1ef-9c6b967926b3}</uid>
+                               <uid>{d6608c1e-14e7-4d79-9288-8b9d251f374a}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>void DeleteItems()</declaration>
@@ -2396,7 +2438,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{a6030d63-3cce-45aa-8200-f10b7489f83b}</uid>
+                               <uid>{5e817dcc-e309-4b3f-a8e2-c080643a048b}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>ObjectItem* AddItem()</declaration>
@@ -2404,7 +2446,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{36e09553-21d5-49fb-b62f-1d45f8cb187b}</uid>
+                               <uid>{21d89a0e-7efd-47e5-9653-b15c61f68c36}</uid>
                                <visibility>3</visibility>
                                <type>2</type>
                                <declaration>void UpdateObjectsPositions()</declaration>
@@ -2412,7 +2454,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{6945a559-0ab2-406d-b143-ea965f89f705}</uid>
+                               <uid>{0fa1a8b1-8e67-4b09-9f4c-4190078bc7c5}</uid>
                                <visibility>3</visibility>
                                <type>2</type>
                                <declaration>void UpdateObjectsSpeeds()</declaration>
@@ -2420,7 +2462,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{b4e43b97-3709-419f-8655-ebf6b4ab31f4}</uid>
+                               <uid>{d8ced9e8-1c81-4ad3-8e13-c571b87f3d2f}</uid>
                                <visibility>3</visibility>
                                <type>2</type>
                                <declaration>void CollisionWithSceneFrames()</declaration>
@@ -2428,7 +2470,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{022d1141-e77d-4813-b805-cdf400848865}</uid>
+                               <uid>{b4225155-e3a2-4613-8e67-a34a60b9115b}</uid>
                                <visibility>3</visibility>
                                <type>2</type>
                                <declaration>void generatePixPath()</declaration>
@@ -2436,7 +2478,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{ad137d55-b744-4745-a1f7-1a5d78641358}</uid>
+                               <uid>{737119fc-1ec4-40bc-8f58-ac3890cce6fc}</uid>
                                <visibility>3</visibility>
                                <type>2</type>
                                <declaration>void impulses()</declaration>
@@ -2444,7 +2486,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{0ecef6ac-861a-4e86-934f-3c5f590118b3}</uid>
+                               <uid>{f60aa7d8-0ad5-405e-aebd-7d21b56940aa}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>QList&lt;ObjectItem *&gt; objects</declaration>
@@ -2452,7 +2494,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{f01e8a20-737a-4fd3-8d87-d2ab6cf1d394}</uid>
+                               <uid>{40e3a246-25a9-487c-abb7-885aaac0420e}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ObjectDirector *director</declaration>
@@ -2460,7 +2502,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{f448955e-c806-4954-9197-f89dae5fc0ca}</uid>
+                               <uid>{de61bfcc-58cc-4e5a-9219-a35da36ba8a9}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>PlanetBuilder *planetBuilder</declaration>
@@ -2468,7 +2510,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{c65c100d-7bd0-445e-953f-0025fad69171}</uid>
+                               <uid>{3d13d94b-633f-4cf3-803c-c72ea3318acf}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>HeavyPointBuilder *heavyPointBuilder</declaration>
@@ -2713,6 +2755,78 @@
                  </MObject>
                 </base-MObject>
                </MPackage>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{43b61cdd-2dff-46e9-959e-fd38793ce816}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{43b61cdd-2dff-46e9-959e-fd38793ce816}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>New UseCase</name>
+                 </MObject>
+                </base-MObject>
+                <variety-editable>false</variety-editable>
+                <variety>usecase</variety>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{771fce86-05b6-454f-bab1-ba2421c84250}</uid>
+             <target>
+              <instance type="MPackage">
+               <MPackage>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{771fce86-05b6-454f-bab1-ba2421c84250}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>New Package</name>
+                 </MObject>
+                </base-MObject>
+               </MPackage>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{66d97ed2-12e9-4f97-a051-ad1209f21652}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{66d97ed2-12e9-4f97-a051-ad1209f21652}</uid>
+                    <stereotypes>
+                     <qlist>
+                      <item>activity</item>
+                     </qlist>
+                    </stereotypes>
+                   </MElement>
+                  </base-MElement>
+                  <name>New UseCase</name>
+                 </MObject>
+                </base-MObject>
+                <variety-editable>false</variety-editable>
+                <variety>usecase</variety>
+               </MItem>
               </instance>
              </target>
             </handle>
