@@ -12,6 +12,7 @@
 #include "scene.h"
 #include "StorageVariable.h"
 #include "proxyimage.h"
+#include <QSound>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -37,6 +38,7 @@ private:
     Scene *scene;
     GameLogic *gameLogic;
     ItemSettingsDialog *itemSettingsDialog;
+    QSound *shootingStars;
 
     AbstractImage *background;
     QString picPath;

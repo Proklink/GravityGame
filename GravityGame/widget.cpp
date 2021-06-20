@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <iostream>
 
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -44,6 +45,9 @@ void Widget::Init()
     QString rawPath = QCoreApplication::applicationDirPath();
     picPath = rawPath.left(rawPath.indexOf("build") - 1) + "/GravityGame/backs/kosmos";
     background = new ProxyImage(picPath + "0.jpg");
+
+    shootingStars = new QSound((rawPath.left(rawPath.indexOf("build") - 1) + "/GravityGame/music.wav"));
+    shootingStars->play();
 }
 
 void Widget::DeleteButtonClicked()
