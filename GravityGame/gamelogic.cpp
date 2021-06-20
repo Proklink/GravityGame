@@ -2,6 +2,7 @@
 #include <cmath>
 #include <QTransform>
 #include <QDebug>
+#include <QVector2D>
 
 GameLogic::GameLogic(QObject *parent)
     : QObject(parent)
@@ -25,7 +26,7 @@ void GameLogic::Update()
     UpdateObjectsPositions();
 };
 
-void GameLogic::impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj2) {
+void GameLogic::impulses(float *newImpSpeedO1, float *newImpSpeedO2, ObjectItem *obj1, ObjectItem *obj2) {
     float yso1 = obj1->GetObjectYSpeed();
     float xso1 = obj1->GetObjectXSpeed();
     float yso2 = obj2->GetObjectYSpeed();
@@ -55,11 +56,11 @@ void GameLogic::impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj
       tempSpeed1 = ((-B) + sqrt(d)) / (2 * A);
       tempSpeed2 = ((-B) - sqrt(d)) / (2 * A);
 
-    tSpeedObj2 = std::fmaxf(tempSpeed1, tempSpeed2);
-    if (tSpeedObj2 < 0) {
-        qDebug() << " fmaxf < 0";
-        tSpeedObj2 = 0;
-    }
+        tSpeedObj2 = std::fmaxf(tempSpeed1, tempSpeed2);
+        if (tSpeedObj2 < 0) {
+            qDebug() << " fmaxf < 0 " << tSpeedObj2;
+            tSpeedObj2 *= -1;
+        }
 
     }
     if (d == 0) // Условие для дискриминанта равного нулю
@@ -77,16 +78,44 @@ void GameLogic::impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj
 
     tSpeedObj1 = speedObj1 + relMass * speedObj2 - relMass * tSpeedObj2;
 
+    *newImpSpeedO1 = tSpeedObj1;
+    *newImpSpeedO2 = tSpeedObj2;
+}
 
+void GameLogic::directions(ObjectItem *obj1, ObjectItem *obj2, float resSpeedObj1, float resSpeedObj2, QVector2D *vo1, QVector2D *vo2) {
+    QVector2D speedObj1(obj1->GetObjectXSpeed(), obj1->GetObjectYSpeed());
+    QVector2D speedObj2(obj2->GetObjectXSpeed(), obj2->GetObjectYSpeed());
+    float moduleSpeedObj1 = sqrt(speedObj1.x() * speedObj1.x() + speedObj1.y() * speedObj1.y());
+    float moduleSpeedObj2 = sqrt(speedObj2.x() * speedObj2.x() + speedObj2.y() * speedObj2.y());
+    QVector2D unitSpeedObj1 = speedObj1 / moduleSpeedObj1;
+    QVector2D unitSpeedObj2 = speedObj2 / moduleSpeedObj2;
+
+    QVector2D unitF21(abs(obj1->pos().x() - obj2->pos().x()), abs(obj1->pos().y() - obj2->pos().y()));
+
+    if (obj2->pos().x() > obj1->pos().x())
+        unitF21 *= -1;
+    if (obj2->pos().y() < obj1->pos().y())
+        unitF21 *= -1;
+
+    float moduleF21 = sqrt(unitF21.x() * unitF21.x() + unitF21.y() * unitF21.y());
+    unitF21 /= moduleF21;
+    QVector2D unitF12 = -unitF21;
+
+    QVector2D resUnitDirObj1 = unitF21 + unitSpeedObj1;
+    QVector2D resUnitDirObj2 = unitF12 + unitSpeedObj2;
+
+    *vo1 = resSpeedObj1 * resUnitDirObj1;
+    *vo2 = resSpeedObj2 * resUnitDirObj2;
 }
 
 void GameLogic::UpdateObjectsSpeeds()
 {
+    float maxSpeed = 200;
     float distance;
-    float deltaX;
-    float deltaY;
-    float vx;
-    float vy;
+    float deltaX, deltaY;
+    float vx, vy;
+    float newImplSpeedO1, newImplSpeedO2;
+    QVector2D speedDirO1, speedDirO2;
 
     for (int i = 0; i < objects.size(); ++i)
     {
@@ -98,22 +127,40 @@ void GameLogic::UpdateObjectsSpeeds()
             deltaX = objects[i]->pos().x() - objects[j]->pos().x();
             deltaY = objects[i]->pos().y() - objects[j]->pos().y();
             distance = sqrt(deltaX * deltaX + deltaY * deltaY);
+            float rs = objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious();
 
-            if (distance <= objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious())
-                continue;
-                //impulses(&vx, &vy, objects[i], objects[j]);
+            if (distance <= rs) {
+                if (objects[i]->GetObjectMass() == 10000 || objects[j]->GetObjectMass() == 10000)
+                    continue;
+                impulses(&newImplSpeedO1, &newImplSpeedO2, objects[i], objects[j]);
+                directions(objects[i], objects[j], newImplSpeedO1, newImplSpeedO2, &speedDirO1, &speedDirO2);
+                objects[i]->SetObjectXSpeed(speedDirO1.x());
+                objects[i]->SetObjectYSpeed(speedDirO1.y());
+                objects[j]->SetObjectXSpeed(speedDirO2.x());
+                objects[j]->SetObjectYSpeed(speedDirO2.y());
 
-            if (distance > 5)
+            }
+
+            else //if (distance > 5)
             {
-                vx =/* 0.007 * */objects[j]->GetObjectMass() / distance / distance
+                vx = objects[j]->GetObjectMass() / distance / distance
                         * (objects[j]->pos().x() - objects[i]->pos().x()) / distance;
-                vy = /*0.007 * */objects[j]->GetObjectMass() / distance / distance
+                vy = objects[j]->GetObjectMass() / distance / distance
                         * (objects[j]->pos().y() - objects[i]->pos().y()) / distance;
 
                 if (objects[i]->GetObjectMass() != 10000)
                     objects[i]->AddSpeed(vx, vy);
             }
         }
+        if (objects[i]->GetObjectXSpeed() > maxSpeed)
+            objects[i]->SetObjectXSpeed(maxSpeed);
+        if (objects[i]->GetObjectYSpeed() > maxSpeed)
+            objects[i]->SetObjectYSpeed(maxSpeed);
+        if (objects[i]->GetObjectXSpeed() < -maxSpeed)
+            objects[i]->SetObjectXSpeed(-maxSpeed);
+        if (objects[i]->GetObjectYSpeed() < -maxSpeed)
+            objects[i]->SetObjectYSpeed(-maxSpeed);
+        qDebug() << objects[i]->GetObjectXSpeed() << " " << objects[i]->GetObjectYSpeed();
     }
 }
 

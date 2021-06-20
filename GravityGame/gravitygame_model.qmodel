@@ -890,7 +890,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1624190685585</last-modified>
+                  <last-modified>1624194519558</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1693,7 +1693,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{853b3cda-1c75-4ca9-ba14-73c49bffb419}</uid>
+                               <uid>{381ce027-a8fd-4ff5-91b9-5fabd9996206}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>void SetParametrs()</declaration>
@@ -1701,7 +1701,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{a626afad-aa2a-4ae2-be0a-da2ec57255a6}</uid>
+                               <uid>{b9f11a42-d07f-417c-a578-a8743d410b85}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void SlotSetParametrs()</declaration>
@@ -1709,7 +1709,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{3e5ad835-80f8-43a4-95cb-b8f6300643c3}</uid>
+                               <uid>{5f40fa23-f5f6-4fa4-84bd-d8029d3aa390}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ItemSettingsDialog *ui</declaration>

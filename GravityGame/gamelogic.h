@@ -33,6 +33,7 @@ private:
     void CollisionWithSceneFrames(const QPointF& point, int index);
     void generatePixPath(QRandomGenerator *generator);
     void impulses(float *vx, float *vy, ObjectItem *obj1, ObjectItem *obj2);
+    void directions(ObjectItem *obj1, ObjectItem *obj2, float resSpeedObj1, float resSpeedObj2, QVector2D *vo1, QVector2D *vo2);
 private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;
