@@ -265,7 +265,7 @@
                          <object>{db9e5ce8-a6c7-4cef-bc1b-57e7def71676}</object>
                          <context>GravityGame</context>
                          <name>AbstractImage</name>
-                         <pos>x:-515;y:-65</pos>
+                         <pos>x:-505;y:115</pos>
                          <rect>x:-85;y:-55;w:170;h:110</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>5</visual-role>
@@ -289,7 +289,7 @@
                          <object>{15955170-c11c-42d5-bf49-5a4cd8a97a0a}</object>
                          <context>GravityGame</context>
                          <name>Image</name>
-                         <pos>x:-410;y:95</pos>
+                         <pos>x:-400;y:275</pos>
                          <rect>x:-40;y:-30;w:80;h:60</rect>
                          <visual-role>5</visual-role>
                          <visual-role2>2</visual-role2>
@@ -311,7 +311,7 @@
                          <object>{ca351f59-b1e0-4a08-ade1-abc6c3708950}</object>
                          <context>GravityGame</context>
                          <name>ProxyImage</name>
-                         <pos>x:-600;y:95</pos>
+                         <pos>x:-590;y:275</pos>
                          <rect>x:-55;y:-40;w:110;h:80</rect>
                          <visual-role>5</visual-role>
                          <visual-role2>2</visual-role2>
@@ -394,7 +394,7 @@
                          </base-DElement>
                          <object>{f3ac0898-ec69-4a1c-9fd6-f820cc4b0ea4}</object>
                          <name>Proxy</name>
-                         <pos>x:-500;y:5</pos>
+                         <pos>x:-490;y:185</pos>
                          <rect>x:-225;y:-165;w:450;h:330</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -416,7 +416,7 @@
                          <object>{c3e90ad1-3c8e-46a1-8036-f0124f63eb28}</object>
                          <context>GravityGame</context>
                          <name>ItemSettingsDialog</name>
-                         <pos>x:65;y:-365</pos>
+                         <pos>x:-40;y:-360</pos>
                          <rect>x:-75;y:-60;w:150;h:120</rect>
                          <visual-role>9</visual-role>
                          <visual-role2>2</visual-role2>
@@ -462,7 +462,7 @@
                          <object>{07ab1725-0146-4389-a4ad-b8037412bef0}</object>
                          <context>GravityGame</context>
                          <name>Widget</name>
-                         <pos>x:70;y:-70</pos>
+                         <pos>x:70;y:-25</pos>
                          <rect>x:-115;y:-120;w:230;h:240</rect>
                          <visual-role>9</visual-role>
                          <visual-role2>2</visual-role2>
@@ -485,7 +485,7 @@
                          <object>{5e57fa84-1164-4553-a56e-c0f15224c5cb}</object>
                          <context>GravityGame</context>
                          <name>GameLogic</name>
-                         <pos>x:80;y:315</pos>
+                         <pos>x:95;y:375</pos>
                          <rect>x:-110;y:-125;w:220;h:250</rect>
                          <visual-role>9</visual-role>
                          <visual-role2>2</visual-role2>
@@ -811,8 +811,8 @@
                         </DElement>
                        </base-DElement>
                        <text>View</text>
-                       <pos>x:75;y:-180</pos>
-                       <rect>x:-145;y:-280;w:290;h:560</rect>
+                       <pos>x:-165;y:-370</pos>
+                       <rect>x:-380;y:-100;w:760;h:200</rect>
                       </DBoundary>
                      </instance>
                     </item>
@@ -839,14 +839,58 @@
                         </DElement>
                        </base-DElement>
                        <text>Controller</text>
-                       <pos>x:75;y:295</pos>
-                       <rect>x:-165;y:-160;w:330;h:320</rect>
+                       <pos>x:75;y:165</pos>
+                       <rect>x:-180;y:-350;w:360;h:700</rect>
                       </DBoundary>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{2051810e-bb71-4a29-894c-d1ca00694357}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{380ed6da-0426-4a86-86cb-726524f817ef}</object>
+                         <name>Ui::Widget</name>
+                         <pos>x:-410;y:-360</pos>
+                         <rect>x:-80;y:-35;w:160;h:70</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAssociation">
+                      <DAssociation>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{419a7ac0-7a81-40c1-b1e5-e0179c7d285f}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{ea6675c6-5673-4e62-9706-38e207bb3457}</object>
+                         <a>{7b9527f7-fca0-4477-a1af-5cfb984bfafa}</a>
+                         <b>{2051810e-bb71-4a29-894c-d1ca00694357}</b>
+                        </DRelation>
+                       </base-DRelation>
+                       <a>
+                        <DAssociationEnd>
+                         <navigable>true</navigable>
+                        </DAssociationEnd>
+                       </a>
+                      </DAssociation>
                      </instance>
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1624008646697</last-modified>
+                  <last-modified>1624190685585</last-modified>
                   <toolbarid>Classes</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1649,7 +1693,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{dda5ea17-476a-43c6-a35d-7ae7ec3e10d5}</uid>
+                               <uid>{853b3cda-1c75-4ca9-ba14-73c49bffb419}</uid>
                                <visibility>1</visibility>
                                <type>2</type>
                                <declaration>void SetParametrs()</declaration>
@@ -1657,7 +1701,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{f11d8f75-f6a2-4dc0-9826-552ddd3d9c99}</uid>
+                               <uid>{a626afad-aa2a-4ae2-be0a-da2ec57255a6}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void SlotSetParametrs()</declaration>
@@ -1665,7 +1709,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{32333a57-9bca-4709-986d-d736bea444a0}</uid>
+                               <uid>{3e5ad835-80f8-43a4-95cb-b8f6300643c3}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ItemSettingsDialog *ui</declaration>
@@ -1896,6 +1940,33 @@
                                    </target>
                                   </handle>
                                  </item>
+                                 <item>
+                                  <handle>
+                                   <uid>{ea6675c6-5673-4e62-9706-38e207bb3457}</uid>
+                                   <target>
+                                    <instance type="MAssociation">
+                                     <MAssociation>
+                                      <base-MRelation>
+                                       <MRelation>
+                                        <base-MElement>
+                                         <MElement>
+                                          <uid>{ea6675c6-5673-4e62-9706-38e207bb3457}</uid>
+                                         </MElement>
+                                        </base-MElement>
+                                        <a>{07ab1725-0146-4389-a4ad-b8037412bef0}</a>
+                                        <b>{380ed6da-0426-4a86-86cb-726524f817ef}</b>
+                                       </MRelation>
+                                      </base-MRelation>
+                                      <a>
+                                       <MAssociationEnd>
+                                        <navigable>true</navigable>
+                                       </MAssociationEnd>
+                                      </a>
+                                     </MAssociation>
+                                    </instance>
+                                   </target>
+                                  </handle>
+                                 </item>
                                 </qlist>
                                </handles>
                               </handles>
@@ -1906,7 +1977,7 @@
                             <qlist>
                              <item>
                               <MClassMember>
-                               <uid>{f131e602-ad45-4c69-b07a-64ac35275abf}</uid>
+                               <uid>{1b24887d-61fa-4249-87a0-eed8c74e771b}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void CreatePlanetClicked()</declaration>
@@ -1914,7 +1985,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{c3d052e7-861d-4134-a5ef-e2560ad2d762}</uid>
+                               <uid>{0c4a3d40-d02a-4374-b247-cc4956daff0c}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void DeleteButtonClicked()</declaration>
@@ -1922,7 +1993,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{9f955d41-5d88-461b-8acf-ed9834646ca6}</uid>
+                               <uid>{4cfa5503-4cc1-4be4-b834-5fe922c3c788}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void CreateItemSettingsDialog()</declaration>
@@ -1930,7 +2001,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{5a6d70ea-1319-4650-b641-ab08dde5e802}</uid>
+                               <uid>{fc2d6410-830f-4d7f-9523-e4ac8e150a7a}</uid>
                                <visibility>5</visibility>
                                <type>2</type>
                                <declaration>void BackgroundClicked()</declaration>
@@ -1938,7 +2009,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{0282658d-ebd7-4894-b671-6934dbe90a0f}</uid>
+                               <uid>{98e2f9cb-c31a-44ce-aa2e-dd32deb01882}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ObjectItem *obj</declaration>
@@ -1946,7 +2017,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{4dbf42d6-8092-4355-87bf-ef2cc75515e8}</uid>
+                               <uid>{550d24fa-32e8-40dc-abf6-1cc152bb5c8e}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>Scene *scene</declaration>
@@ -1954,7 +2025,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{acb19f99-7531-47a9-b0b1-914d3cb60b24}</uid>
+                               <uid>{bd6a16e9-ea1b-4179-87e7-179e281eeeed}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>GameLogic *gameLogic</declaration>
@@ -1962,7 +2033,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{6736d87e-0494-498c-841f-c248fe080ddd}</uid>
+                               <uid>{374e5070-48ad-4da5-bf04-910eb52f6d58}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>ItemSettingsDialog *itemSettingsDialog</declaration>
@@ -1970,7 +2041,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{840ed02c-b26e-4667-a238-cb6ff698cce2}</uid>
+                               <uid>{6ed74c63-06fc-47b3-9b4b-3fec2517f442}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>AbstractImage *background</declaration>
@@ -1978,7 +2049,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{bc29a026-51cb-447b-8f7d-f29d2446bfcc}</uid>
+                               <uid>{31f73983-4458-43fb-baf5-c0f062831c42}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>QString picPath</declaration>
@@ -1986,7 +2057,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{061a0183-f147-4a26-94ab-773985b85321}</uid>
+                               <uid>{ade42dc1-27c6-40f2-98bd-b32aae0ec13c}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>int ImageNumber</declaration>
@@ -1994,7 +2065,7 @@
                              </item>
                              <item>
                               <MClassMember>
-                               <uid>{9e81824f-982f-4acc-ba4b-95f1babeffd8}</uid>
+                               <uid>{b8cb38ff-8225-49f3-8705-64aad041c182}</uid>
                                <visibility>3</visibility>
                                <type>1</type>
                                <declaration>int backgroundImageConuter</declaration>
@@ -2827,6 +2898,27 @@
                 <variety-editable>false</variety-editable>
                 <variety>usecase</variety>
                </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{380ed6da-0426-4a86-86cb-726524f817ef}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{380ed6da-0426-4a86-86cb-726524f817ef}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Ui::Widget</name>
+                 </MObject>
+                </base-MObject>
+               </MClass>
               </instance>
              </target>
             </handle>
